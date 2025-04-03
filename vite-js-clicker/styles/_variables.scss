@@ -1,0 +1,7 @@
+@use 'helpers' as *;
+
+
+:root {
+    --container-width: #{rem(1600)};
+    --container-padding-x: #{rem(16)};
+}

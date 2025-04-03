@@ -1,0 +1,15 @@
+@use '../helpers' as *;
+
+.reset {
+
+    &__button {
+        background-color: rgb(240, 87, 87);
+        border: black rem(2) solid;
+        border-radius: rem(15);
+        padding: rem(10);
+        font-weight: 600;
+        font-size: 18px;
+        width: 80px;
+        margin-right: 40px;
+    }
+}

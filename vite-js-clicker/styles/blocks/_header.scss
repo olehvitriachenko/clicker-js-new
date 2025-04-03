@@ -1,0 +1,27 @@
+@use '../helpers' as *;
+
+.header {
+    width: fluid(1200, 400);
+    margin-inline: 1rem;
+
+    @include mobile {
+        width: fluid(400, 200);
+        margin-inline: 0;
+        border-radius: 0;
+    }
+
+    border-radius: 0px 0px 40px 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #222629;
+    padding: rem(10);
+    border: gray solid rem(2);
+    border-top: 0px;
+
+    @include mobile {
+        width: 1000px;
+        margin-inline: 0;
+        max-width: 100%;
+    }
+}

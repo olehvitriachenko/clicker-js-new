@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Clicker | Game</title>
+  <link rel="stylesheet" href="./styles/main.css">
+  <script src="./src/counter.js" defer></script>
+</head>
+
+<body>
+
+  <div class="clicker-inner" data-js-clicker>
+    <header class="header">
+      <div class="statistics container">
+        <div class="statistics__score">
+          <div class="statistics__score-element">Score: <span data-js-clicker-counter>0</span>
+          </div>
+        </div>
+      </div>
+      <div class="reset">
+        <button class="reset__button" type="button" data-js-clicker-reset-button>Reset</button>
+      </div>
+    </header>
+    <main class="main">
+      <div class="clicker container">
+        <div class="clicker__body">
+
+        </div>
+        <div class="clicker__inner">
+          <button class="clicker__button" type="button" data-js-clicker-button>Punch!</button>
+        </div>
+      </div>
+    </main>
+</body>
+</div>
+
+</html>

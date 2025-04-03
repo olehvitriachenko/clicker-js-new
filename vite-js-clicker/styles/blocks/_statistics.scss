@@ -1,0 +1,16 @@
+@use '../helpers' as *;
+
+.statistics {
+    background-color: #E8CCFF;
+    border: black rem(3) solid;
+    border-radius: rem(15);
+
+    &__score {
+        padding: rem(10);
+        max-width: rem(800);
+        width: auto;
+        white-space: nowrap;
+        font-weight: 800;
+        font-size: 28px;
+    }
+}

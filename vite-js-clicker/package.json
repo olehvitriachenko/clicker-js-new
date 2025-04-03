@@ -1,0 +1,26 @@
+{
+  "name": "vite-js-clicker",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "sass-watch": "sass --watch .",
+    "start": "vite"
+  },
+  "devDependencies": {
+    "vite": "^6.2.0"
+  },
+  "dependencies": {
+    "sass": "^1.86.1"
+  },
+  "exports": {
+    ".": {
+      "import": "./index.html",
+      "default": "./index.html"
+    },
+    "./*": "./*"
+  }
+}

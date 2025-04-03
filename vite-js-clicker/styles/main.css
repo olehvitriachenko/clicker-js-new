@@ -1,0 +1,320 @@
+@charset "UTF-8";
+.container {
+  max-width: calc(var(--container-width) + var(--container-padding-x) * 2);
+  margin-inline: auto;
+  padding-inline: var(--container-padding-x);
+}
+
+:root {
+  --container-width: 100rem;
+  --container-padding-x: 1rem;
+}
+
+/**
+  Нормализация блочной модели
+ */
+*,
+::before,
+::after {
+  box-sizing: border-box;
+}
+
+/**
+   Убираем внутренние отступы слева тегам списков,
+   у которых есть атрибут class
+  */
+:where(ul, ol):where([class]) {
+  padding-left: 0;
+}
+
+/**
+   Убираем внешние отступы body и двум другим тегам,
+   у которых есть атрибут class
+  */
+body,
+:where(blockquote, figure):where([class]) {
+  margin: 0;
+}
+
+/**
+   Убираем внешние отступы вертикали нужным тегам,
+   у которых есть атрибут class
+  */
+:where(h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul,
+ol,
+dl):where([class]) {
+  margin-block: 0;
+}
+
+:where(dd[class]) {
+  margin-left: 0;
+}
+
+:where(fieldset[class]) {
+  margin-left: 0;
+  padding: 0;
+  border: none;
+}
+
+/**
+   Убираем стандартный маркер маркированному списку,
+   у которого есть атрибут class
+  */
+:where(ul[class]) {
+  list-style: none;
+}
+
+:where(address[class]) {
+  font-style: normal;
+}
+
+/**
+   Обнуляем вертикальные внешние отступы параграфа,
+   объявляем локальную переменную для внешнего отступа вниз,
+   чтобы избежать взаимодействие с более сложным селектором
+  */
+p {
+  --paragraphMarginBottom: 24px;
+  margin-block: 0;
+}
+
+/**
+   Внешний отступ вниз для параграфа без атрибута class,
+   который расположен не последним среди своих соседних элементов
+  */
+p:where(:not([class]):not(:last-child)) {
+  margin-bottom: var(--paragraphMarginBottom);
+}
+
+/**
+   Упрощаем работу с изображениями и видео
+  */
+img,
+video {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/**
+   Наследуем свойства шрифт для полей ввода
+  */
+input,
+textarea,
+select,
+button {
+  font: inherit;
+}
+
+html {
+  /**
+   Пригодится в большинстве ситуаций
+   (когда, например, нужно будет "прижать" футер к низу сайта)
+  */
+  height: 100%;
+  /**
+   Убираем скачок интерфейса по горизонтали
+   при появлении / исчезновении скроллбара
+  */
+}
+
+/**
+   Плавный скролл
+  */
+html,
+:has(:target) {
+  scroll-behavior: smooth;
+}
+
+body {
+  /**
+   Пригодится в большинстве ситуаций
+   (когда, например, нужно будет "прижать" футер к низу сайта)
+  */
+  min-height: 100%;
+  /**
+   Унифицированный интерлиньяж
+  */
+  line-height: 1.5;
+}
+
+/**
+   Нормализация высоты элемента ссылки при его инспектировании в DevTools
+  */
+a:where([class]) {
+  display: inline-flex;
+}
+
+/**
+   Курсор-рука при наведении на элемент
+  */
+button,
+label {
+  cursor: pointer;
+}
+
+/**
+   Приводим к единому цвету svg-элементы
+   (за исключением тех, у которых уже указан
+   атрибут fill со значением 'none' или начинается с 'url')
+  */
+:where([fill]:not([fill=none],
+[fill^=url])) {
+  fill: currentColor;
+}
+
+/**
+   Приводим к единому цвету svg-элементы
+   (за исключением тех, у которых уже указан
+   атрибут stroke со значением 'none')
+  */
+:where([stroke]:not([stroke=none],
+[stroke^=url])) {
+  stroke: currentColor;
+}
+
+/**
+   Чиним баг задержки смены цвета при взаимодействии с svg-элементами
+  */
+svg * {
+  transition-property: fill, stroke;
+}
+
+/**
+   Приведение рамок таблиц в классический 'collapse' вид
+  */
+:where(table) {
+  border-collapse: collapse;
+  border-color: currentColor;
+}
+
+/**
+   Удаляем все анимации и переходы для людей,
+   которые предпочитают их не использовать
+  */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+.header {
+  width: clamp(25rem, 12.2549019608rem + 52.2875816993vw, 75rem);
+  margin-inline: 1rem;
+  border-radius: 0px 0px 40px 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #222629;
+  padding: 0.625rem;
+  border: gray solid 0.125rem;
+  border-top: 0px;
+}
+@media (width <= 47.99875rem) {
+  .header {
+    width: clamp(12.5rem, 9.3137254902rem + 13.0718954248vw, 25rem);
+    margin-inline: 0;
+    border-radius: 0;
+  }
+}
+@media (width <= 47.99875rem) {
+  .header {
+    width: 1000px;
+    margin-inline: 0;
+    max-width: 100%;
+  }
+}
+
+.clicker-inner {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.clicker {
+  border: gray solid 0.125rem;
+  border-top: 0px;
+  width: clamp(25rem, 17.0343137255rem + 32.6797385621vw, 56.25rem);
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  align-items: center;
+  max-height: 600px;
+  background-color: #444444;
+  padding-block: 0.9375rem;
+  border-radius: 0px 0 50px 50px;
+}
+@media (width <= 47.99875rem) {
+  .clicker {
+    max-width: 100%;
+    width: clamp(18.75rem, 12.3774509804rem + 26.1437908497vw, 43.75rem);
+    margin-inline: 0;
+    border-radius: 0;
+  }
+}
+.clicker__button {
+  width: clamp(6.25rem, 1.4705882353rem + 19.6078431373vw, 25rem);
+  max-width: 100%;
+  height: clamp(2.5rem, 1.862745098rem + 2.614379085vw, 5rem);
+  border-radius: 0.625rem;
+  padding: 0.1875rem;
+  border: 0.125rem black solid;
+  color: rgba(13, 11, 11, 0.801);
+  font-size: clamp(1.25rem, 1.1225490196rem + 0.522875817vw, 1.75rem);
+  font-weight: clamp(25rem, 18.6274509804rem + 26.1437908497vw, 50rem);
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  letter-spacing: 0.2rem;
+  user-select: none;
+}
+.clicker__button:hover {
+  opacity: 0.8;
+  border-color: gray;
+  transition-duration: 0.2s;
+  border-width: 4px;
+}
+.clicker__button:active {
+  opacity: 0.6;
+}
+
+.statistics {
+  background-color: #E8CCFF;
+  border: black 0.1875rem solid;
+  border-radius: 0.9375rem;
+}
+.statistics__score {
+  padding: 0.625rem;
+  max-width: 50rem;
+  width: auto;
+  white-space: nowrap;
+  font-weight: 800;
+  font-size: 28px;
+}
+
+.reset__button {
+  background-color: rgb(240, 87, 87);
+  border: black 0.125rem solid;
+  border-radius: 0.9375rem;
+  padding: 0.625rem;
+  font-weight: 600;
+  font-size: 18px;
+  width: 80px;
+  margin-right: 40px;
+}
+
+body {
+  background-color: #DDDDDD;
+}
+
+/*# sourceMappingURL=main.css.map */

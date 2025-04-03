@@ -1,0 +1,63 @@
+@use '../helpers' as *;
+
+.clicker-inner {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.clicker {
+    border: gray solid rem(2);
+    border-top: 0px;
+    width: fluid(900, 400);
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
+    max-height: 600px;
+    background-color: #444444;
+    padding-block: rem(15);
+    border-radius: 0px 0 50px 50px;
+
+    @include mobile {
+        max-width: 100%;
+        width: fluid(700, 300);
+        margin-inline: 0;
+        border-radius: 0;
+    }
+
+    @include tablet {}
+
+    // &__inner {}
+
+    &__button {
+        width: fluid(400, 100);
+        max-width: 100%;
+        height: fluid(80, 40);
+        border-radius: rem(10);
+        padding: rem(3);
+        border: rem(2) black solid;
+
+        color: rgba(13, 11, 11, 0.801);
+        font-size: fluid(28, 20);
+        font-weight: fluid(800, 400);
+        font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+        letter-spacing: 0.2rem;
+        user-select: none;
+
+        &:hover {
+            opacity: 0.8;
+            border-color: gray;
+            transition-duration: 0.2s;
+            border-width: 4px;
+        }
+
+        &:active {
+            opacity: 0.6;
+
+        }
+    }
+
+}

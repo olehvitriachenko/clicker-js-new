@@ -1,0 +1,12 @@
+@use "utils";
+@use "variables";
+@use "normalize";
+
+@use './blocks/header';
+@use './blocks/clicker';
+@use './blocks/statistics';
+@use './blocks/reset';
+
+body {
+    background-color: #DDDDDD;
+}
